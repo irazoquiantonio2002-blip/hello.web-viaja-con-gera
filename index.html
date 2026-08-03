@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Viaja con Gera ofrece transporte privado, tours y viajes nacionales desde Guadalajara y Puerto Vallarta con vans ejecutivas, operadores profesionales, servicio 24/7 y reserva por WhatsApp.">
+<meta name="keywords" content="Viaja con Gera, transporte privado Puerto Vallarta, transporte privado Guadalajara, tours Guadalajara, vans ejecutivas, traslado GDL PV, Toyota Hiace, Suburban ejecutiva">
+<meta property="og:title" content="Viaja con Gera | Transporte privado y tours premium">
+<meta property="og:description" content="Vans ejecutivas para grupos, traslados privados, tours y viajes nacionales con atención personalizada desde Guadalajara y Puerto Vallarta.">
+<meta property="og:image" content="assets/hero-hiace-puerto-vallarta.webp">
+<title>Viaja con Gera | Transporte Privado y Tours Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #D2B100;
+  --gold-light: #F2D85C;
+  --gold-dark: #9A7C00;
+  --gold-soft: rgba(210, 177, 0, 0.14);
+  --black: #000000;
+  --ink: #070707;
+  --ink-2: #111111;
+  --ink-3: #181818;
+  --smoke: #F4F2EB;
+  --white: #FFFFFF;
+  --muted: rgba(255,255,255,0.68);
+  --dim: rgba(255,255,255,0.42);
+  --text: #1A1A1A;
+  --text-soft: #696969;
+  --border-dark: rgba(210,177,0,0.2);
+  --border-light: rgba(0,0,0,0.08);
+  --shadow-gold: 0 22px 70px rgba(210,177,0,0.2);
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Open Sans", system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+ul { list-style: none; }
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, rgba(210,177,0,0.18), transparent 38%),
+    linear-gradient(135deg, #000 0%, #111 48%, #000 100%);
+  transition: opacity 1.05s var(--ease), visibility 1.05s var(--ease);
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-inner { text-align: center; position: relative; }
+.loader-inner::before {
+  content: "";
+  position: absolute;
+  inset: -34px;
+  border: 1px solid rgba(210,177,0,0.24);
+  animation: loaderOrbit 4s linear infinite;
+}
+.loader-inner img {
+  width: min(320px, 76vw);
+  filter: drop-shadow(0 0 26px rgba(210,177,0,0.46));
+  animation: loaderPulse 2.2s ease-in-out infinite;
+}
+.loader-word {
+  margin-top: 18px;
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+.loader-bar {
+  width: 150px;
+  height: 2px;
+  margin: 22px auto 0;
+  overflow: hidden;
+  background: rgba(255,255,255,0.16);
+}
+.loader-bar span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  animation: loaderBar 1.8s var(--ease) infinite;
+}
+@keyframes loaderPulse { 50% { transform: scale(1.035); } }
+@keyframes loaderOrbit { to { transform: rotate(360deg); } }
+@keyframes loaderBar { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+#mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: rgba(0,0,0,0.96);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.42s var(--ease), visibility 0.42s var(--ease);
+}
+#mobile-menu.open { opacity: 1; visibility: visible; }
+.mob-logo img { width: 210px; filter: drop-shadow(0 0 18px rgba(210,177,0,0.55)); }
+#mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+#mobile-menu .mob-wa {
+  padding: 14px 24px;
+  color: var(--black);
+  background: var(--gold);
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 18px 5%;
+  transition: padding 0.35s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+#nav.scrolled {
+  padding: 10px 5%;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 1px 0 rgba(210,177,0,0.22);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+.nav-logo img {
+  width: 168px;
+  filter: drop-shadow(0 0 14px rgba(210,177,0,0.5));
+}
+.nav-logo-text { display: none; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 2.4vw, 34px);
+  flex: 1 1 auto;
+}
+.nav-links a {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 20px;
+  color: var(--black);
+  background: var(--gold);
+  box-shadow: 0 12px 34px rgba(210,177,0,0.22);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.25s var(--ease), background 0.25s, box-shadow 0.25s;
+}
+.nav-cta:hover { transform: translateY(-2px); background: var(--gold-light); box-shadow: var(--shadow-gold); }
+.nav-ham { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-ham span { width: 26px; height: 2px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+.nav-ham.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.nav-ham.open span:nth-child(2) { opacity: 0; }
+.nav-ham.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 5%; }
+.section-pad { padding: 116px 0; }
+.section-header { max-width: 760px; margin: 0 auto 62px; text-align: center; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.section-tag::before, .section-tag::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+.section-tag.no-lines::before, .section-tag.no-lines::after { display: none; }
+.section-title {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 68px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+.section-title em { color: var(--gold); font-style: italic; }
+.section-lead {
+  margin: 20px auto 0;
+  color: inherit;
+  max-width: 650px;
+  font-size: 16px;
+}
+
+#hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: url("assets/hero-hiace-puerto-vallarta.webp") center / cover no-repeat;
+  background-attachment: fixed;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 44%, rgba(0,0,0,0.18) 100%),
+    radial-gradient(circle at 36% 42%, rgba(210,177,0,0.24), transparent 36%);
+  z-index: 1;
+}
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hero-frame {
+  position: absolute;
+  inset: 110px 5% 70px;
+  z-index: 2;
+  border: 1px solid rgba(210,177,0,0.22);
+  pointer-events: none;
+}
+.hero-frame::before, .hero-frame::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 1px;
+  background: var(--gold);
+  box-shadow: 0 0 34px rgba(210,177,0,0.65);
+  animation: sweep 4.8s ease-in-out infinite;
+}
+.hero-frame::before { top: -1px; left: 10%; }
+.hero-frame::after { bottom: -1px; right: 10%; animation-delay: 1.2s; }
+@keyframes sweep { 50% { transform: translateX(170px); opacity: 0.35; } }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(760px, 92%);
+  margin-left: 5%;
+  padding-top: 84px;
+}
+.hero-eyebrow {
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s var(--ease) 0.35s forwards;
+}
+.hero-title {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 8.5vw, 118px);
+  font-weight: 800;
+  line-height: 0.93;
+  letter-spacing: 0;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 1s var(--ease) 0.55s forwards;
+}
+.hero-title em {
+  display: inline-block;
+  color: var(--gold);
+  font-style: italic;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), #fff4b8, var(--gold));
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4.2s linear infinite 1.2s;
+}
+.hero-subtitle {
+  margin-top: 20px;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s var(--ease) 0.76s forwards;
+}
+.typer-word { color: var(--gold-light); }
+.typer-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: -0.12em;
+  background: var(--gold);
+  animation: blink 0.78s step-end infinite;
+}
+.hero-desc {
+  margin-top: 22px;
+  max-width: 610px;
+  color: var(--muted);
+  font-size: 17px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s var(--ease) 0.96s forwards;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 38px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s var(--ease) 1.16s forwards;
+}
+.btn-primary, .btn-ghost, .btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 30px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn-primary { color: var(--black); background: var(--gold); box-shadow: var(--shadow-gold); }
+.btn-primary:hover { transform: translateY(-3px); background: var(--gold-light); }
+.btn-ghost { color: var(--white); border: 1px solid rgba(255,255,255,0.26); }
+.btn-ghost:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold-light); }
+.btn-dark { color: var(--white); background: var(--black); }
+.btn-dark:hover { transform: translateY(-3px); background: #1a1a1a; }
+.hero-trust {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 720px;
+  margin-top: 50px;
+  background: rgba(210,177,0,0.18);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.9s var(--ease) 1.36s forwards;
+}
+.trust-item {
+  min-height: 92px;
+  padding: 18px;
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(14px);
+}
+.trust-item strong {
+  display: block;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.trust-item span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+.hero-scroll {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  bottom: 34px;
+  color: var(--dim);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.hero-scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 54px;
+  margin: 10px auto 0;
+  background: linear-gradient(var(--gold), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes shimmer { to { background-position: -280% 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes scrollPulse { 50% { opacity: 0.35; transform: translateY(8px); } }
+
+#about { background: var(--smoke); color: var(--text); }
+.about-grid { display: grid; grid-template-columns: 0.88fr 1.12fr; gap: 74px; align-items: center; }
+.about-media { position: relative; min-height: 520px; }
+.about-media img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  object-position: center;
+}
+.about-badge {
+  position: absolute;
+  right: -28px;
+  bottom: 34px;
+  width: min(260px, 62vw);
+  padding: 24px;
+  color: var(--black);
+  background: var(--gold);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+}
+.about-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+}
+.about-badge span {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.about-copy .section-title { color: var(--text); }
+.about-copy p:not(.section-tag) { margin-top: 18px; color: var(--text-soft); font-size: 16px; }
+.mini-proof {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 34px;
+  background: var(--border-light);
+}
+.mini-proof div { padding: 20px; background: #fff; }
+.mini-proof strong {
+  color: var(--gold-dark);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+}
+.mini-proof span {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+#why { position: relative; background: var(--white); color: var(--text); overflow: hidden; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+}
+.why-card {
+  position: relative;
+  min-height: 310px;
+  padding: 34px 26px;
+  background: var(--white);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.why-card:hover { transform: translateY(-8px); box-shadow: 0 22px 70px rgba(0,0,0,0.08); z-index: 2; }
+.why-num {
+  display: block;
+  color: rgba(210,177,0,0.16);
+  font-family: var(--font-display);
+  font-size: 86px;
+  font-weight: 800;
+  line-height: 0.82;
+}
+.why-card h3 {
+  margin-top: 28px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.18;
+}
+.why-card p { margin-top: 14px; color: var(--text-soft); font-size: 14px; }
+
+#services { background: var(--ink-2); color: var(--white); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  background: #000;
+}
+.service-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease), filter 0.5s;
+}
+.service-card:hover img { transform: scale(1.06); filter: saturate(1.1); }
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.4) 52%, rgba(0,0,0,0.1) 100%);
+}
+.service-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 32px;
+}
+.service-tag {
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.service-card h3 {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.05;
+}
+.service-card p { margin-top: 14px; color: var(--muted); font-size: 14px; }
+.service-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.service-meta span {
+  padding: 6px 10px;
+  border: 1px solid rgba(210,177,0,0.32);
+  color: var(--gold-light);
+  background: rgba(0,0,0,0.45);
+  font-size: 11px;
+}
+
+#process {
+  position: relative;
+  background:
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.84)),
+    url("assets/galeria-destinos.webp") center / cover no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(210,177,0,0.22);
+}
+.process-step {
+  position: relative;
+  z-index: 2;
+  min-height: 280px;
+  padding: 34px;
+  background: rgba(0,0,0,0.66);
+  backdrop-filter: blur(12px);
+}
+.process-step span {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.process-step h3 {
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-size: 25px;
+  line-height: 1.16;
+}
+.process-step p { margin-top: 14px; color: var(--muted); }
+
+#stats {
+  position: relative;
+  overflow: hidden;
+  background: var(--gold);
+  color: var(--black);
+}
+#stats::before {
+  content: "VIAJA CON GERA";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: rgba(0,0,0,0.06);
+  font-family: var(--font-display);
+  font-size: clamp(62px, 12vw, 160px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+.stats-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.stat { text-align: center; }
+.stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 800;
+  line-height: 1;
+}
+.stat span {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+#gallery { background: var(--black); color: var(--white); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 340px 290px;
+  gap: 4px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease), filter 0.45s;
+}
+.gallery-item:hover img { transform: scale(1.06); filter: brightness(0.72); }
+.gallery-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 20px;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(0,0,0,0.82), transparent);
+  font-size: 14px;
+}
+.g1 { grid-column: 1 / 7; }
+.g2 { grid-column: 7 / 10; }
+.g3 { grid-column: 10 / 13; }
+.g4 { grid-column: 1 / 5; }
+.g5 { grid-column: 5 / 9; }
+.g6 { grid-column: 9 / 13; }
+
+#promise {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(0,0,0,0.88), rgba(0,0,0,0.74)),
+    url("assets/galeria-estadio.webp") center / cover no-repeat;
+  background-attachment: fixed;
+}
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.promise-card {
+  padding: 34px;
+  min-height: 250px;
+  border: 1px solid rgba(210,177,0,0.22);
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(12px);
+}
+.promise-stars {
+  color: var(--gold-light);
+  letter-spacing: 0.16em;
+  font-size: 14px;
+}
+.promise-card h3 {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+.promise-card p { margin-top: 12px; color: var(--muted); font-size: 14px; }
+
+#contact { position: relative; background: var(--ink-2); color: var(--white); overflow: hidden; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 58px;
+  align-items: start;
+}
+.contact-panel {
+  border: 1px solid rgba(210,177,0,0.2);
+  background: rgba(0,0,0,0.38);
+  backdrop-filter: blur(12px);
+  padding: 34px;
+}
+.contact-panel h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.12;
+}
+.contact-panel h3 em { color: var(--gold); font-style: italic; }
+.contact-panel > p { margin-top: 12px; color: var(--muted); }
+#booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group label {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-height: 48px;
+  color: var(--white);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(210,177,0,0.2);
+  padding: 12px 14px;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.form-group select option { color: #111; }
+.form-group textarea { min-height: 92px; resize: vertical; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.34); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(210,177,0,0.12);
+}
+.form-submit {
+  min-height: 56px;
+  color: var(--black);
+  background: var(--gold);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.25s var(--ease), background 0.25s;
+}
+.form-submit:hover { transform: translateY(-2px); background: var(--gold-light); }
+.contact-list { display: grid; gap: 10px; margin-top: 26px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  color: var(--white);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(210,177,0,0.16);
+  transition: border-color 0.25s, background 0.25s;
+}
+.contact-link:hover { border-color: var(--gold); background: rgba(210,177,0,0.08); }
+.contact-link strong {
+  display: block;
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.contact-link span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
+.map-wrap {
+  overflow: hidden;
+  margin-top: 20px;
+  border: 1px solid rgba(210,177,0,0.2);
+  background: #050505;
+}
+.map-wrap iframe { width: 100%; height: 290px; border: 0; display: block; filter: grayscale(1) contrast(1.1) invert(0.92); }
+
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(210,177,0,0.22);
+  padding: 68px 5% 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.35fr repeat(3, 1fr);
+  gap: 44px;
+  padding-bottom: 46px;
+  border-bottom: 1px solid rgba(210,177,0,0.18);
+}
+.footer-logo { width: 220px; filter: drop-shadow(0 0 14px rgba(210,177,0,0.45)); }
+.footer-brand p { max-width: 350px; margin-top: 18px; color: var(--dim); font-size: 14px; }
+.footer-col h4 {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-col ul { display: grid; gap: 9px; }
+.footer-col a { color: var(--dim); font-size: 14px; transition: color 0.25s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 28px;
+  color: var(--dim);
+  font-size: 12px;
+}
+.social-links { display: flex; gap: 10px; }
+.social-link {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(210,177,0,0.24);
+  color: var(--dim);
+  transition: color 0.25s, border-color 0.25s;
+}
+.social-link:hover { color: var(--gold); border-color: var(--gold); }
+.social-link svg { width: 16px; height: 16px; }
+
+#wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 10px 34px rgba(37,211,102,0.38);
+  transition: transform 0.25s var(--ease);
+}
+#wa-float:hover { transform: translateY(-4px) scale(1.04); }
+#wa-float::before, #wa-float::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: inherit;
+  background: rgba(37,211,102,0.18);
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+#wa-float::after { inset: -14px; animation-delay: 0.6s; }
+#wa-float svg { position: relative; z-index: 1; width: 28px; height: 28px; fill: currentColor; }
+@keyframes waPulse { 50% { transform: scale(1.16); opacity: 0; } }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s var(--ease), transform 0.85s var(--ease); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+
+@media (max-width: 1060px) {
+  .nav-logo img { width: 138px; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 10px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .why-grid, .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .services-grid, .process-grid, .promise-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 500px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  #nav { gap: 10px; padding: 12px 4%; }
+  .nav-links { display: none; }
+  .nav-ham { display: flex; }
+  .nav-logo img { width: 128px; }
+  .nav-cta { min-height: 38px; padding: 0 12px; font-size: 9px; letter-spacing: 0.08em; }
+  #hero { min-height: 820px; background-attachment: scroll; background-position: 62% center; }
+  #hero::before { background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.72) 54%, rgba(0,0,0,0.86)); }
+  .hero-frame { inset: 92px 4% 54px; }
+  .hero-content { width: 92%; margin: 0 auto; text-align: left; padding-top: 120px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-trust { grid-template-columns: 1fr; }
+  .hero-scroll { display: none; }
+  .section-pad { padding: 86px 0; }
+  .about-media { min-height: 0; }
+  .about-media img { height: 470px; }
+  .about-badge { right: 16px; bottom: 16px; }
+  .mini-proof, .why-grid, .stats-row { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-item { min-height: 230px; }
+  .g1,.g2,.g3,.g4,.g5,.g6 { grid-column: auto; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  #process, #promise { background-attachment: scroll; }
+}
+@media (max-width: 430px) {
+  .nav-logo img { width: 108px; }
+  .nav-cta { font-size: 8px; padding: 0 9px; }
+  .hero-title { font-size: clamp(46px, 15vw, 60px); }
+  .btn-primary, .btn-ghost, .btn-dark { width: 100%; padding: 0 18px; font-size: 10px; }
+  .contact-panel { padding: 24px; }
+  #wa-float { width: 54px; height: 54px; right: 16px; bottom: 16px; }
+}
+</style>
+</head>
+<body>
+<div id="loader" role="status" aria-label="Cargando Viaja con Gera">
+  <div class="loader-inner">
+    <img src="assets/logo-viaja-con-gera.png" alt="Viaja con Gera Executive">
+    <p class="loader-word">Cargando...</p>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<div id="mobile-menu" role="dialog" aria-label="Menú principal">
+  <div class="mob-logo"><img src="assets/logo-viaja-con-gera.png" alt="Viaja con Gera"></div>
+  <a href="#about" onclick="closeMob()">Nosotros</a>
+  <a href="#services" onclick="closeMob()">Servicios</a>
+  <a href="#process" onclick="closeMob()">Proceso</a>
+  <a href="#gallery" onclick="closeMob()">Galería</a>
+  <a href="#contact" onclick="closeMob()">Contacto</a>
+  <a class="mob-wa" href="https://wa.me/523221332540" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<nav id="nav" aria-label="Navegación principal">
+  <a href="#" class="nav-logo" aria-label="Viaja con Gera inicio">
+    <img src="assets/logo-viaja-con-gera.png" alt="Logo Viaja con Gera">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#why">Elegirnos</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#process">Proceso</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/523221332540" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+  <button class="nav-ham" id="ham" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<section id="hero" aria-label="Portada Viaja con Gera">
+  <canvas class="particle-canvas" data-particles="hero" aria-hidden="true"></canvas>
+  <div class="hero-frame" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Transporte privado y tours premium</p>
+    <h1 class="hero-title">Viaja cómodo.<br>Viaja <em>seguro.</em></h1>
+    <p class="hero-subtitle">Llegar a tiempo también es viajar con <span id="typer" class="typer-word"></span><span class="typer-cursor" aria-hidden="true"></span></p>
+    <p class="hero-desc">Vans ejecutivas para grupos, traslados privados, tours y viajes nacionales con atención personalizada desde Guadalajara y Puerto Vallarta.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Reservar por WhatsApp</a>
+      <a href="#services" class="btn-ghost">Ver servicios</a>
+    </div>
+    <div class="hero-trust" aria-label="Datos de confianza">
+      <div class="trust-item"><strong>Servicio 24/7</strong><span>Disponibilidad para traslados, grupos y reservaciones.</span></div>
+      <div class="trust-item"><strong>GPS en tiempo real</strong><span>Monitoreo para viajar con mayor tranquilidad.</span></div>
+      <div class="trust-item"><strong>Bilingüe</strong><span>Atención para locales, turistas y visitantes internacionales.</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Explora</div>
+</section>
+
+<main>
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <img src="assets/galeria-grupo-van.webp" alt="Grupo de viajeros junto a van ejecutiva de Viaja con Gera" loading="lazy">
+          <div class="about-badge"><strong>10+</strong><span>años explorando México</span></div>
+        </div>
+        <div class="about-copy">
+          <p class="section-tag no-lines reveal">Sobre el negocio</p>
+          <h2 class="section-title reveal d1">Transporte privado con trato <em>ejecutivo</em> y humano.</h2>
+          <p class="reveal d2">Viaja con Gera conecta Puerto Vallarta, Guadalajara y destinos nacionales con viajes cómodos, seguros y adaptados a cada grupo.</p>
+          <p class="reveal d2">La experiencia combina operadores profesionales, atención flexible, puntualidad y una comunicación clara para que el camino se sienta tan placentero como el destino.</p>
+          <div class="mini-proof reveal d3">
+            <div><strong>11</strong><span>pasajeros en Toyota Hiace moderna</span></div>
+            <div><strong>6</strong><span>pasajeros en Suburban de lujo</span></div>
+            <div><strong>2025</strong><span>vehículo modelo 2025 en ruta PV</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="section-pad">
+    <canvas class="particle-canvas" data-particles="soft" aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Por qué elegirnos</p>
+        <h2 class="section-title reveal d1">Cada kilómetro cuenta con <em>control</em>.</h2>
+        <p class="section-lead reveal d2">Una propuesta premium no se trata solo de una unidad bonita: se nota en la puntualidad, la seguridad y la forma de resolver cada detalle.</p>
+      </div>
+      <div class="why-grid">
+        <article class="why-card reveal"><span class="why-num">01</span><h3>Puntualidad como estándar</h3><p>Llegamos a tiempo para que tu agenda, vuelo, evento o salida no dependa de improvisaciones.</p></article>
+        <article class="why-card reveal d1"><span class="why-num">02</span><h3>Conductores profesionales</h3><p>Operadores capacitados, trato respetuoso y experiencia en rutas locales y nacionales.</p></article>
+        <article class="why-card reveal d2"><span class="why-num">03</span><h3>Unidades ejecutivas</h3><p>Toyota Hiace moderna para grupos y Suburban de lujo para traslados privados con mayor discreción.</p></article>
+        <article class="why-card reveal d3"><span class="why-num">04</span><h3>Atencion personalizada</h3><p>Servicio bilingue, seguimiento por WhatsApp y flexibilidad para viajes familiares, de trabajo o corporativos.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Servicios</p>
+        <h2 class="section-title reveal d1">Rutas y experiencias para viajar <em>sin fricción</em>.</h2>
+        <p class="section-lead reveal d2" style="color:var(--muted);">Servicios publicados por Viaja con Gera para traslados privados, rutas GDL-PV, tours y viajes nacionales.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <img src="assets/hero-hiace-puerto-vallarta.webp" alt="Toyota Hiace en ruta hacia Puerto Vallarta al atardecer" loading="lazy">
+          <div class="service-content">
+            <p class="service-tag">GDL - PV</p>
+            <h3>Guadalajara a Puerto Vallarta</h3>
+            <p>Salidas diarias: Guadalajara-Puerto Vallarta 11 AM y Puerto Vallarta-Guadalajara 6 PM. Ruta por La Peñita, Guayabitos, San Pancho, Sayulita y Bucerías.</p>
+            <div class="service-meta"><span>Desde $600 pp</span><span>Snack incluido</span><span>Seguro de turismo</span></div>
+          </div>
+        </article>
+        <article class="service-card reveal d1">
+          <img src="assets/galeria-estadio.webp" alt="Van ejecutiva para traslado a eventos y agenda corporativa" loading="lazy">
+          <div class="service-content">
+            <p class="service-tag">Ejecutivo</p>
+            <h3>Empresas, hoteles, aeropuertos y eventos</h3>
+            <p>Traslados privados con puntualidad, discreción y profesionalismo para agendas corporativas, visitantes, equipos de trabajo y eventos.</p>
+            <div class="service-meta"><span>Suburban de lujo</span><span>Disponible 24/7</span><span>Cobertura nacional</span></div>
+          </div>
+        </article>
+        <article class="service-card reveal d2">
+          <img src="assets/galeria-grupo-van.webp" alt="Grupo de viajeros junto a van ejecutiva para tours nacionales" loading="lazy">
+          <div class="service-content">
+            <p class="service-tag">Tours</p>
+            <h3>Viajes nacionales y grupos</h3>
+            <p>Tours a destinos como Mazatlán, San Luis Potosí, Ciudad de México, Guanajuato, Aguascalientes, Zacatecas y viajes personalizados para grupos de 10 a 12 personas.</p>
+            <div class="service-meta"><span>Mazatlan desde $850 pp</span><span>Grupos 10-12</span><span>Reserva anticipada</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section-pad">
+    <canvas class="particle-canvas" data-particles="soft" aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Como funciona</p>
+        <h2 class="section-title reveal d1">Reservar tu traslado debe sentirse <em>simple</em>.</h2>
+        <p class="section-lead reveal d2" style="color:var(--muted);">Tres pasos claros para pasar de la idea al viaje confirmado.</p>
+      </div>
+      <div class="process-grid">
+        <article class="process-step reveal"><span>Paso 01</span><h3>Comparte tu ruta</h3><p>Escribe por WhatsApp origen, destino, fecha, hora aproximada y número de pasajeros.</p></article>
+        <article class="process-step reveal d1"><span>Paso 02</span><h3>Recibe propuesta</h3><p>El equipo confirma disponibilidad, unidad recomendada, ruta y condiciones del servicio.</p></article>
+        <article class="process-step reveal d2"><span>Paso 03</span><h3>Viaja con tranquilidad</h3><p>Tu operador llega puntual, el viaje se monitorea y tu grupo disfruta el traslado sin estrés.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="section-pad" aria-label="Numeros destacados">
+    <div class="container">
+      <div class="stats-row reveal">
+        <div class="stat"><strong><span class="count" data-count="10">0</span>+</strong><span>Anos de experiencia</span></div>
+        <div class="stat"><strong><span class="count" data-count="24">0</span>/7</strong><span>Servicio disponible</span></div>
+        <div class="stat"><strong><span class="count" data-count="11">0</span></strong><span>Pasajeros en Hiace</span></div>
+        <div class="stat"><strong><span class="count" data-count="100">0</span>%</strong><span>Recomendados</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Galería</p>
+        <h2 class="section-title reveal d1">Unidades, rutas y destinos con presencia <em>premium</em>.</h2>
+        <p class="section-lead reveal d2" style="color:var(--muted);">Material visual proporcionado para mostrar la experiencia Viaja con Gera en traslados y tours.</p>
+      </div>
+      <div class="gallery-grid reveal d1">
+        <figure class="gallery-item g1"><img src="assets/hero-hiace-puerto-vallarta.webp" alt="Toyota Hiace en Puerto Vallarta al atardecer" loading="lazy"><figcaption>Hiace para grupos en Puerto Vallarta</figcaption></figure>
+        <figure class="gallery-item g2"><img src="assets/galeria-estadio.webp" alt="Van ejecutiva cerca de estadio en Guadalajara" loading="lazy"><figcaption>Traslados para eventos y agenda ejecutiva</figcaption></figure>
+        <figure class="gallery-item g3"><img src="assets/servicio-ejecutivo-suburban.webp" alt="Suburban ejecutiva Viaja con Gera" loading="lazy"><figcaption>Suburban privada para empresas y hoteles</figcaption></figure>
+        <figure class="gallery-item g4"><img src="assets/galeria-grupo-van.webp" alt="Grupo de viajeros abordando van ejecutiva" loading="lazy"><figcaption>Viajes para grupos familiares y amigos</figcaption></figure>
+        <figure class="gallery-item g5"><img src="assets/galeria-destinos.webp" alt="Banner de destinos con van y Suburban de Viaja con Gera" loading="lazy"><figcaption>Destinos nacionales a la medida</figcaption></figure>
+        <figure class="gallery-item g6"><img src="assets/galeria-puerto-vallarta.webp" alt="Ruta Guadalajara Puerto Vallarta con van ejecutiva" loading="lazy"><figcaption>Ruta GDL-PV con salidas disponibles</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="promise" class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Compromisos 5 estrellas</p>
+        <h2 class="section-title reveal d1">Lo que el servicio debe cuidar <em>siempre</em>.</h2>
+        <p class="section-lead reveal d2" style="color:var(--muted);">No agregamos reseñas inventadas. En su lugar, destacamos los compromisos publicados por el negocio.</p>
+      </div>
+      <div class="promise-grid">
+        <article class="promise-card reveal"><div class="promise-stars">★★★★★</div><h3>Seguridad primero</h3><p>Operadores capacitados, viajes confiables, seguro de turismo y monitoreo GPS en tiempo real.</p></article>
+        <article class="promise-card reveal d1"><div class="promise-stars">★★★★★</div><h3>Servicio personalizado</h3><p>Atencion antes, durante y despues del viaje para ajustar cada traslado a las necesidades del grupo.</p></article>
+        <article class="promise-card reveal d2"><div class="promise-stars">★★★★★</div><h3>Cobertura nacional</h3><p>Desde traslados locales hasta recorridos por la República Mexicana con reservación anticipada.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-pad">
+    <canvas class="particle-canvas" data-particles="soft" aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal">Contacto</p>
+        <h2 class="section-title reveal d1">Agenda tu traslado por <em>WhatsApp</em>.</h2>
+        <p class="section-lead reveal d2" style="color:var(--muted);">Completa el formulario y se abrirá WhatsApp con el mensaje listo para enviar.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-panel reveal">
+          <h3>Cuéntanos tu <em>ruta</em></h3>
+          <p>Mientras más claro sea tu itinerario, más rápido podrá responder el equipo con disponibilidad y propuesta.</p>
+          <form id="booking-form" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" autocomplete="name" required></div>
+              <div class="form-group"><label for="telefono">WhatsApp</label><input id="telefono" name="telefono" type="tel" placeholder="+52 000 000 0000" autocomplete="tel" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="origen">Origen</label><input id="origen" name="origen" type="text" placeholder="Ej. Guadalajara" required></div>
+              <div class="form-group"><label for="destino">Destino</label><input id="destino" name="destino" type="text" placeholder="Ej. Puerto Vallarta" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="fecha">Fecha</label><input id="fecha" name="fecha" type="date" required></div>
+              <div class="form-group"><label for="pasajeros">Pasajeros</label><select id="pasajeros" name="pasajeros"><option value="1-3">1 a 3</option><option value="4-6">4 a 6</option><option value="7-11" selected>7 a 11</option><option value="10-12">10 a 12 grupo tour</option></select></div>
+            </div>
+            <div class="form-group"><label for="servicio">Tipo de servicio</label><select id="servicio" name="servicio"><option>Traslado privado</option><option>Ruta Guadalajara - Puerto Vallarta</option><option>Ruta Puerto Vallarta - Guadalajara</option><option>Tour o viaje nacional</option><option>Servicio ejecutivo corporativo</option><option>Aeropuerto / hotel / evento</option></select></div>
+            <div class="form-group"><label for="mensaje">Detalles</label><textarea id="mensaje" name="mensaje" placeholder="Hora aproximada, equipaje, paradas, viaje redondo o necesidades especiales."></textarea></div>
+            <button class="form-submit" type="submit">Enviar solicitud por WhatsApp</button>
+          </form>
+        </div>
+        <div class="contact-panel reveal d1">
+          <h3>Datos del <em>negocio</em></h3>
+          <p>Información tomada del sitio oficial y material proporcionado.</p>
+          <div class="contact-list">
+            <a class="contact-link" href="https://wa.me/523221332540" target="_blank" rel="noopener"><span><strong>WhatsApp</strong><span>+52 322 133 2540</span></span><span>→</span></a>
+            <a class="contact-link" href="tel:+523317196878"><span><strong>Teléfono</strong><span>+52 33 1719 6878</span></span><span>→</span></a>
+            <a class="contact-link" href="mailto:viajacongerahoy@gmail.com"><span><strong>Correo</strong><span>viajacongerahoy@gmail.com</span></span><span>→</span></a>
+            <div class="contact-link"><span><strong>Ubicación</strong><span>Zapopan, Jalisco, México</span></span></div>
+            <div class="contact-link"><span><strong>Horario</strong><span>Servicio 24/7</span></span></div>
+          </div>
+          <div class="map-wrap" aria-label="Mapa de Zapopan Jalisco México">
+            <iframe title="Mapa de Zapopan Jalisco México" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Zapopan%2C%20Jalisco%2C%20Mexico&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img class="footer-logo" src="assets/logo-viaja-con-gera.png" alt="Viaja con Gera Executive">
+      <p>Viajar debe ser tan placentero como el destino: transporte privado, tours y viajes nacionales con atención personalizada.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul><li><a href="#about">Nosotros</a></li><li><a href="#why">Por qué elegirnos</a></li><li><a href="#services">Servicios</a></li><li><a href="#gallery">Galería</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul><li><a href="#services">GDL - Puerto Vallarta</a></li><li><a href="#services">Traslado ejecutivo</a></li><li><a href="#services">Tours nacionales</a></li><li><a href="#process">Proceso de reserva</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul><li><a href="https://wa.me/523221332540" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="tel:+523317196878">+52 33 1719 6878</a></li><li><a href="mailto:viajacongerahoy@gmail.com">viajacongerahoy@gmail.com</a></li><li><a href="#contact">Reservar</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Viaja con Gera. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a class="social-link" href="https://www.facebook.com/viajacongera/" target="_blank" rel="noopener" aria-label="Facebook Viaja con Gera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a class="social-link" href="https://viajacongera.com/" target="_blank" rel="noopener" aria-label="Sitio oficial Viaja con Gera"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></a>
+      <a class="social-link" href="https://wa.me/523221332540" target="_blank" rel="noopener" aria-label="WhatsApp Viaja con Gera"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.49-8.42"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/523221332540" id="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.49-8.42"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  var WA_NUMBER = "523221332540";
+
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      var loader = document.getElementById("loader");
+      if (loader) loader.classList.add("hidden");
+    }, 2300);
+  });
+
+  var nav = document.getElementById("nav");
+  window.addEventListener("scroll", function () {
+    nav.classList.toggle("scrolled", window.scrollY > 60);
+  }, { passive: true });
+
+  var ham = document.getElementById("ham");
+  var mob = document.getElementById("mobile-menu");
+  var menuOpen = false;
+  window.closeMob = function () {
+    menuOpen = false;
+    ham.classList.remove("open");
+    mob.classList.remove("open");
+    ham.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+  ham.addEventListener("click", function () {
+    menuOpen = !menuOpen;
+    ham.classList.toggle("open", menuOpen);
+    mob.classList.toggle("open", menuOpen);
+    ham.setAttribute("aria-expanded", String(menuOpen));
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  });
+
+  function initParticles(canvas) {
+    var ctx = canvas.getContext("2d");
+    var rect, points = [], raf = null;
+    var density = canvas.dataset.particles === "hero" ? 95 : 42;
+
+    function resize() {
+      rect = canvas.parentElement.getBoundingClientRect();
+      var ratio = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.floor(rect.width * ratio));
+      canvas.height = Math.max(1, Math.floor(rect.height * ratio));
+      canvas.style.width = rect.width + "px";
+      canvas.style.height = rect.height + "px";
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      points = [];
+      var total = Math.min(density, Math.floor(rect.width / 13));
+      for (var i = 0; i < total; i++) {
+        points.push({
+          x: Math.random() * rect.width,
+          y: Math.random() * rect.height,
+          r: Math.random() * 2.4 + 0.5,
+          vx: (Math.random() - 0.5) * 0.24,
+          vy: (Math.random() - 0.5) * 0.24,
+          a: Math.random() * 0.5 + 0.16
+        });
+      }
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      points.forEach(function (p) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -5) p.x = rect.width + 5;
+        if (p.x > rect.width + 5) p.x = -5;
+        if (p.y < -5) p.y = rect.height + 5;
+        if (p.y > rect.height + 5) p.y = -5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210,177,0," + p.a + ")";
+        ctx.fill();
+      });
+      for (var i = 0; i < points.length; i++) {
+        for (var j = i + 1; j < points.length; j++) {
+          var dx = points[i].x - points[j].x;
+          var dy = points[i].y - points[j].y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 118) {
+            ctx.beginPath();
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
+            ctx.strokeStyle = "rgba(210,177,0," + ((1 - d / 118) * 0.13) + ")";
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        if (!raf) frame();
+      } else {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    }, { threshold: 0.02 });
+    io.observe(canvas.parentElement);
+  }
+  document.querySelectorAll(".particle-canvas").forEach(initParticles);
+
+  (function typewriter() {
+    var el = document.getElementById("typer");
+    if (!el) return;
+    var words = ["seguridad", "puntualidad", "comodidad", "confianza"];
+    var wi = 0, ci = 0, removing = false;
+    function tick() {
+      var word = words[wi];
+      if (!removing) {
+        ci += 1;
+        el.textContent = word.slice(0, ci);
+        if (ci === word.length) {
+          removing = true;
+          setTimeout(tick, 1800);
+          return;
+        }
+        setTimeout(tick, 90);
+      } else {
+        ci -= 1;
+        el.textContent = word.slice(0, ci);
+        if (ci === 0) {
+          removing = false;
+          wi = (wi + 1) % words.length;
+        }
+        setTimeout(tick, 52);
+      }
+    }
+    setTimeout(tick, 2600);
+  }());
+
+  var revealEls = document.querySelectorAll(".reveal");
+  var revealIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+  revealEls.forEach(function (el) { revealIO.observe(el); });
+
+  var countStarted = false;
+  var stats = document.getElementById("stats");
+  if (stats) {
+    new IntersectionObserver(function (entries, observer) {
+      if (!entries[0].isIntersecting || countStarted) return;
+      countStarted = true;
+      document.querySelectorAll(".count").forEach(function (node) {
+        var target = Number(node.dataset.count || 0);
+        var start = performance.now();
+        var duration = 1300;
+        function animate(now) {
+          var p = Math.min(1, (now - start) / duration);
+          var eased = 1 - Math.pow(1 - p, 3);
+          node.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      });
+      observer.unobserve(stats);
+    }, { threshold: 0.35 }).observe(stats);
+  }
+
+  var form = document.getElementById("booking-form");
+  if (form) {
+    var fecha = document.getElementById("fecha");
+    if (fecha) fecha.min = new Date().toISOString().split("T")[0];
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var nombre = document.getElementById("nombre").value.trim();
+      var telefono = document.getElementById("telefono").value.trim();
+      var origen = document.getElementById("origen").value.trim();
+      var destino = document.getElementById("destino").value.trim();
+      var fechaViaje = document.getElementById("fecha").value;
+      var pasajeros = document.getElementById("pasajeros").value;
+      var servicio = document.getElementById("servicio").value;
+      var mensaje = document.getElementById("mensaje").value.trim();
+
+      if (!nombre || !telefono || !origen || !destino || !fechaViaje) {
+        alert("Por favor completa nombre, WhatsApp, origen, destino y fecha.");
+        return;
+      }
+
+      var text = [
+        "*Viaja con Gera - Solicitud de traslado*",
+        "",
+        "*Nombre:* " + nombre,
+        "*WhatsApp:* " + telefono,
+        "*Origen:* " + origen,
+        "*Destino:* " + destino,
+        "*Fecha:* " + fechaViaje,
+        "*Pasajeros:* " + pasajeros,
+        "*Servicio:* " + servicio,
+        mensaje ? "*Detalles:* " + mensaje : null,
+        "",
+        "Quiero confirmar disponibilidad y cotización. Gracias."
+      ].filter(Boolean).join("\n");
+
+      window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text), "_blank", "noopener");
+    });
+  }
+}());
+</script>
+</body>
+</html>
